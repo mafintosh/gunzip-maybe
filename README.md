@@ -4,6 +4,8 @@ Transform stream that gunzips its input if it is gunzipped and just echoes it if
 
 	npm install gunzip-maybe
 
+[![build status](http://img.shields.io/travis/mafintosh/gunzip-maybe.svg?style=flat)](http://travis-ci.org/mafintosh/gunzip-maybe)
+
 ## Usage
 
 Simply pipe a gzipped (or not gzipped) stream to `gunzip()` and read the unzipped content.
