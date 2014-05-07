@@ -1,7 +1,7 @@
 {
   "name": "gunzip-maybe",
   "description": "Transform stream that gunzips its input if it is gunzipped and just echoes it if not",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "mafintosh/gunzip-maybe",
   "dependencies": {
     "through2": "^0.4.1"
