@@ -1,45 +1,16 @@
 var zlib = require('zlib');
-var through2 = require('through2');
+var peek = require('peek-stream')
+var through = require('through2')
+
+var isGzipped = function(data) {
+  if (data.length < 10) return false
+  if (data[0] !== 0x1f && data[1] !== 0x8b) return false
+  if (data[2] !== 8) return false
+  return true
+}
 
 module.exports = function() {
-	var gunzip = zlib.createGunzip();
-	var buffer = [];
-	var callback;
-
-	var writeRaw = function(chunk, enc, cb) {
-		cb(null, chunk);
-	};
-
-	var writeGunzip = function(chunk, enc, cb) {
-		if (buffer) {
-			buffer.push(chunk);
-			callback = cb;
-		}
-
-		gunzip.write(chunk, enc, function(err) {
-			if (err) return cb(err);
-
-			var data;
-			while ((data = gunzip.read())) {
-				transform.push(data);
-				buffer = null;
-			}
-
-			cb();
-		});
-	};
-
-	gunzip.once('error', function() {
-		write = writeRaw;
-		while (buffer.length) transform.push(buffer.shift());
-		buffer = null;
-		return callback();
-	});
-
-	var write = writeGunzip;
-	var transform = through2(function(chunk, enc, cb) {
-		write(chunk, enc, cb);
-	});
-
-	return transform;
-};
+  return peek({newline:false, maxBuffer:10}, function(data, swap) {
+    swap(null, isGzipped(data) ? zlib.createGunzip() : through())
+  })
+}
