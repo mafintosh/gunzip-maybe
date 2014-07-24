@@ -1,6 +1,6 @@
 # gunzip-maybe
 
-Transform stream that gunzips its input if it is gunzipped and just echoes it if not.
+Transform stream that gunzips its input if it is gzipped and just echoes it if not.
 
 	npm install gunzip-maybe
 
