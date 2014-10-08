@@ -4,6 +4,7 @@
   "version": "1.0.2",
   "repository": "mafintosh/gunzip-maybe",
   "dependencies": {
+    "browserify-zlib": "^0.1.4",
     "peek-stream": "^1.1.0",
     "through2": "^0.4.1"
   },
@@ -13,5 +14,8 @@
   },
   "scripts": {
     "test": "tape test.js"
+  },
+  "browser": {
+    "zlib": "browserify-zlib"
   }
 }
