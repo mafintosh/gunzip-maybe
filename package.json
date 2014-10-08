@@ -1,7 +1,7 @@
 {
   "name": "gunzip-maybe",
   "description": "Transform stream that gunzips its input if it is gunzipped and just echoes it if not",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "mafintosh/gunzip-maybe",
   "dependencies": {
     "browserify-zlib": "^0.1.4",
