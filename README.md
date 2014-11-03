@@ -2,7 +2,9 @@
 
 Transform stream that gunzips its input if it is gzipped and just echoes it if not.
 
-	npm install gunzip-maybe
+```
+npm install gunzip-maybe
+```
 
 [![build status](http://img.shields.io/travis/mafintosh/gunzip-maybe.svg?style=flat)](http://travis-ci.org/mafintosh/gunzip-maybe)
 
@@ -17,6 +19,14 @@ gzippedStream.pipe(gunzip()).pipe(process.stdout);
 // this will just echo plainTextStream
 plainTextStream.pipe(gunzip()).pipe(process.stdout);
 ```
+
+## CLI usage
+
+```
+npm install -g gunzip-maybe
+gunzip-maybe --help # will print out usage
+```
+
 
 ## License
 

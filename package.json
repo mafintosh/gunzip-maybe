@@ -15,6 +15,9 @@
   "scripts": {
     "test": "tape test.js"
   },
+  "bin": {
+    "gunzip-maybe": "./bin.js"
+  },
   "browser": {
     "zlib": "browserify-zlib"
   }
