@@ -5,6 +5,7 @@
   "repository": "mafintosh/gunzip-maybe",
   "dependencies": {
     "browserify-zlib": "^0.1.4",
+    "duplexify": "^3.3.0",
     "peek-stream": "^1.1.0",
     "through2": "^0.4.1"
   },

@@ -14,6 +14,17 @@ tape('gunzipped input', function(t) {
 		}))
 });
 
+tape('gunzipped multiple times', function(t) {
+	fs.createReadStream(__filename)
+		.pipe(zlib.createGzip())
+		.pipe(zlib.createGzip())
+		.pipe(gunzip())
+		.pipe(concat(function(data) {
+			t.same(data, fs.readFileSync(__filename));
+			t.end();
+		}))
+});
+
 tape('regular input', function(t) {
 	fs.createReadStream(__filename)
 		.pipe(gunzip())
