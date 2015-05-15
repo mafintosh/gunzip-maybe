@@ -1,7 +1,7 @@
 var zlib = require('zlib');
 var peek = require('peek-stream')
 var through = require('through2')
-var duplexify = require('duplexify')
+var pumpify = require('pumpify')
 
 var isGzipped = function(data) {
   if (data.length < 10) return false // gzip header is 10 bytes
@@ -10,16 +10,9 @@ var isGzipped = function(data) {
   return true
 }
 
-var createParser = function() {
-  var zlibGunzip = zlib.createGunzip()
-  var gunzipObj = gunzip()
-  zlibGunzip.pipe(gunzipObj)
-  return duplexify(zlibGunzip, gunzipObj)
-}
-
 var gunzip = function() {
   return peek({newline:false, maxBuffer:10}, function(data, swap) {
-    swap(null, isGzipped(data) ? createParser() : through())
+    swap(null, isGzipped(data) ? pumpify(zlib.createGunzip(), gunzip()) : through())
   })
 }
 
