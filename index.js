@@ -11,7 +11,7 @@ var isCompressed = function (data) {
 }
 
 var gunzip = function () {
-  return peek({newline:false, maxBuffer:10}, function (data, swap) {
+  return peek({newline: false, maxBuffer: 10}, function (data, swap) {
     switch (isCompressed(data)) {
       case 1:
         swap(null, pumpify(zlib.createGunzip(), gunzip()))
