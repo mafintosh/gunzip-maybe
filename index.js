@@ -1,4 +1,4 @@
-var zlib = require('zlib');
+var zlib = require('zlib')
 var peek = require('peek-stream')
 var through = require('through2')
 var pumpify = require('pumpify')
@@ -25,4 +25,4 @@ var gunzip = function() {
   })
 }
 
-module.exports = gunzip;
+module.exports = gunzip
