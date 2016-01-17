@@ -11,10 +11,11 @@
   },
   "devDependencies": {
     "concat-stream": "^1.4.5",
+    "standard": "^5.4.1",
     "tape": "^2.12.3"
   },
   "scripts": {
-    "test": "tape test.js"
+    "test": "standard && tape test.js"
   },
   "bin": {
     "gunzip-maybe": "./bin.js"

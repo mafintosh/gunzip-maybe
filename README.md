@@ -7,6 +7,7 @@ npm install gunzip-maybe
 ```
 
 [![build status](http://img.shields.io/travis/mafintosh/gunzip-maybe.svg?style=flat)](http://travis-ci.org/mafintosh/gunzip-maybe)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 ## Usage
 
