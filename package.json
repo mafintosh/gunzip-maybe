@@ -2,7 +2,11 @@
   "name": "gunzip-maybe",
   "description": "Transform stream that gunzips its input if it is gzipped and just echoes it if not",
   "version": "1.2.1",
-  "repository": "mafintosh/gunzip-maybe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/gunzip-maybe"
+  },
+  "license": "MIT",
   "dependencies": {
     "browserify-zlib": "^0.1.4",
     "peek-stream": "^1.1.0",
@@ -22,5 +26,11 @@
   },
   "browser": {
     "zlib": "browserify-zlib"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/mafintosh/gunzip-maybe/issues"
+  },
+  "homepage": "https://github.com/mafintosh/gunzip-maybe",
+  "main": "index.js",
+  "author": "Mathias Buus (@mafintosh)"
 }
