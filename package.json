@@ -1,7 +1,7 @@
 {
   "name": "gunzip-maybe",
   "description": "Transform stream that gunzips its input if it is gzipped and just echoes it if not",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/mafintosh/gunzip-maybe"
@@ -36,7 +36,7 @@
   "main": "index.js",
   "author": "Mathias Buus (@mafintosh)",
   "coordinates": [
-    59.91695350000001,
-    10.7400225
+    55.6666904,
+    12.5797771
   ]
 }
