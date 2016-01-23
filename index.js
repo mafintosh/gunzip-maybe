@@ -2,11 +2,12 @@ var zlib = require('zlib')
 var peek = require('peek-stream')
 var through = require('through2')
 var pumpify = require('pumpify')
+var isGzip = require('is-gzip')
+var isDeflate = require('is-deflate')
 
 var isCompressed = function (data) {
-  if (data.length < 10) return 0 // gzip header is 10 bytes
-  if (data[0] === 0x1f && data[1] === 0x8b && data[2] === 8) return 1 // gzip magic bytes
-  if (data[0] === 0x78 && (data[1] === 1 || data[1] === 0x9c || data[1] === 0xda)) return 2 // deflate magic bytes
+  if (isGzip(data)) return 1
+  if (isDeflate(data)) return 2
   return 0
 }
 
