@@ -13,12 +13,12 @@
     "is-gzip": "^1.0.0",
     "peek-stream": "^1.1.0",
     "pumpify": "^1.3.3",
-    "through2": "^0.4.1"
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "concat-stream": "^1.4.5",
-    "standard": "^5.4.1",
-    "tape": "^2.12.3"
+    "standard": "^9.0.0",
+    "tape": "^4.6.3"
   },
   "scripts": {
     "test": "standard && tape test.js"
