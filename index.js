@@ -11,14 +11,17 @@ var isCompressed = function (data) {
   return 0
 }
 
-var gunzip = function () {
+var gunzip = function (maxRecursion) {
+  if (!(0 <= maxRecursion)) maxRecursion = 3
+
   return peek({newline: false, maxBuffer: 10}, function (data, swap) {
+    if (maxRecursion < 0) return swap(new Error('Maximum recursion reached'))
     switch (isCompressed(data)) {
       case 1:
-        swap(null, pumpify(zlib.createGunzip(), gunzip()))
+        swap(null, pumpify(zlib.createGunzip(), gunzip(maxRecursion - 1)))
         break
       case 2:
-        swap(null, pumpify(zlib.createInflate(), gunzip()))
+        swap(null, pumpify(zlib.createInflate(), gunzip(maxRecursion - 1)))
         break
       default:
         swap(null, through())

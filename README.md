@@ -11,7 +11,8 @@ npm install gunzip-maybe
 
 ## Usage
 
-Simply pipe a gzipped (or not gzipped) stream to `gunzip()` and read the unzipped content.
+Simply pipe a gzipped (or not gzipped) stream to `gunzip([maxRecursion = 3])` and read the unzipped content.
+`maxRecursion` protects the unzip mechanism from an infinite recursion in case of a malicious archive.
 
 ``` js
 // this will gunzip gzippedStream
