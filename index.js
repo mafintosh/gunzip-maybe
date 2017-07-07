@@ -12,7 +12,7 @@ var isCompressed = function (data) {
 }
 
 var gunzip = function (maxRecursion) {
-  if (!(0 <= maxRecursion)) maxRecursion = 3
+  if (!(maxRecursion >= 0)) maxRecursion = 3
 
   return peek({newline: false, maxBuffer: 10}, function (data, swap) {
     if (maxRecursion < 0) return swap(new Error('Maximum recursion reached'))
